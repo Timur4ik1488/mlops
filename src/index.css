@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #080c14;
+    color: #e2e8f0;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d131f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f293d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3b5c;
+}
+
+/* Cyber grid background */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+}
+
+.cyber-glow-cyan {
+  box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.35);
+}
+
+.cyber-glow-emerald {
+  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.35);
+}
+
+.cyber-glow-purple {
+  box-shadow: 0 0 25px -5px rgba(168, 85, 247, 0.35);
+}
+
+/* Pulsing SVG line animation */
+@keyframes dash-pulse {
+  0% {
+    stroke-dashoffset: 40;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animated-dash-line {
+  stroke-dasharray: 6 6;
+  animation: dash-pulse 2s linear infinite;
+}
