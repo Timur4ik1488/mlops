@@ -8,9 +8,18 @@ services:
     container_name: uncflow-ml-academy
     restart: unless-stopped
     ports:
-      - "8080:80"
+      - "80:80"
+      - "443:443"
+    volumes:
+      # Постоянное хранилище для бесплатных SSL-сертификатов Let's Encrypt
+      - caddy_data:/data
+      - caddy_config:/config
     environment:
-      - NODE_ENV=production
+      - DOMAIN=timops.duckdns.org
     labels:
       - "app=uncflow"
-      - "tier=frontend-academy"
+      - "domain=timops.duckdns.org"
+
+volumes:
+  caddy_data:
+  caddy_config:

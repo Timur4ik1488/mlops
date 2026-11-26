@@ -1,0 +1,16 @@
+timops.duckdns.org {
+    root * /srv
+    encode gzip zstd
+    try_files {path} /index.html
+    file_server
+
+    header {
+        X-Frame-Options "SAMEORIGIN"
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+}
+
+:80 {
+    redir https://timops.duckdns.org{uri} permanent
+}
